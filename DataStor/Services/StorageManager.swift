@@ -14,7 +14,7 @@ final class StorageManager {
     private let contactKey = "contacts"
     
     private init() {}
-    
+    // отображение сохраненных данных
     func fetchContacts() -> [Contact] {
         guard let data = userDefaults.data(forKey: contactKey) else { return [] }
         guard let contacts = try? JSONDecoder().decode([Contact].self, from: data) else { return [] }
@@ -34,6 +34,6 @@ final class StorageManager {
         contacts.remove(at: index)
         
         guard let data = try? JSONEncoder().encode(contacts) else { return }
-        userDefaults.set(data, forKey: contactKey)
+        userDefaults.set(data, forKey: contactKey) // сохранение данных
     }
 }
