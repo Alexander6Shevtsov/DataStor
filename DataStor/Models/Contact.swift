@@ -8,7 +8,7 @@
 struct Contact: Codable {
     let firstName: String
     let lastName: String
-    
+    // getter
     var fullName: String {
         "\(firstName) \(lastName)"
     }

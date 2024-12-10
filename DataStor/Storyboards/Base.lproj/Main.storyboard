@@ -29,6 +29,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nal-vn-Sx7" id="m2Z-D8-hsN"/>
+                                    <outlet property="delegate" destination="nal-vn-Sx7" id="oAM-0R-BK8"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="If2-Ed-mDu"/>
@@ -43,12 +47,12 @@
                     <navigationItem key="navigationItem" title="Contacts" id="Clc-FD-cl8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gKi-yL-EaC">
                             <connections>
-                                <segue destination="jNi-ed-R1l" kind="presentation" id="B5d-bQ-3NF"/>
+                                <segue destination="jNi-ed-R1l" kind="presentation" modalPresentationStyle="automatic" id="B5d-bQ-3NF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="HwT-WL-PaU" id="rqa-kQ-4Oo"/>
+                        <outlet property="tableView" destination="HwT-WL-PaU" id="Fm2-9H-QEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQe-b2-1S1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,8 +71,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="New Contact" id="AjZ-lZ-yFP">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VtD-YJ-Mpz"/>
-                                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="j5t-b3-H57"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VtD-YJ-Mpz">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="jNi-ed-R1l" id="gvd-rG-aSR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="j5t-b3-H57">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="jNi-ed-R1l" id="rn6-QH-PYD"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -102,6 +114,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YRm-gx-P9i"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="j5t-b3-H57" id="dpk-S1-mi4"/>
+                        <outlet property="firstNameTextField" destination="TDf-Am-99f" id="Rf4-ct-H76"/>
+                        <outlet property="lastNameTextField" destination="X1x-mt-1ui" id="RE8-q1-AqG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1EQ-bh-nVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
