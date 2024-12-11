@@ -25,15 +25,15 @@ final class StorageManager {
     func save(contact: Contact) {
         var contacts = fetchContacts()
         contacts.append(contact)
-        // сохранение в массиве
+        
         guard let data = try? PropertyListEncoder().encode(contacts) else { return }
-        try? data.write(to: fileURL, options: .noFileProtection)
+        try? data.write(to: fileURL, options: .noFileProtection) // запись на диск
     }
     
     func deleteContact(at index: Int) {
         var contacts = fetchContacts()
         contacts.remove(at: index)
-        // сохранение изменения
+        
         guard let data = try? PropertyListEncoder().encode(contacts) else { return }
         try? data.write(to: fileURL, options: .noFileProtection)
     }
